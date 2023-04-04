@@ -1,15 +1,15 @@
 import 'dart:io';
 import 'dart:typed_data';
-
-import 'package:erp_app_prac/screens/config_screen.dart';
 import 'package:erp_app_prac/screens/home.dart';
-import 'package:erp_app_prac/screens/login_screen.dart';
+import 'package:erp_app_prac/screens/loginScreen.dart';
+import 'package:erp_app_prac/screens/Select_Role.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 void main() async {
   HttpOverrides.global = new MyHttpOverrides();
-  // WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
 
   // ByteData data = await PlatformAssetBundle().load('assets/ca/lets-encrypt-r3.pem');
   // SecurityContext.defaultContext.setTrustedCertificatesBytes(data.buffer.asUint8List());
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const loginscreen(),
+      home: const Login(),
     );
   }
 }
