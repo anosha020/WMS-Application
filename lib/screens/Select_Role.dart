@@ -1,4 +1,4 @@
-import 'package:erp_app_prac/screens/home.dart';
+import 'package:erp_app_prac/screens/homeScreen.dart';
 import 'package:erp_app_prac/utils/color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';

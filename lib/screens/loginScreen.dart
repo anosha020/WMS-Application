@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../service/loginapi.dart';
 // import '../utils/alert.dart';
 import '../utils/color.dart';
+import 'Select_Role.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -209,6 +210,10 @@ class _LoginState extends State<Login> {
               InkWell(
                 onTap: () {
                   if (_formkey.currentState!.validate()) {
+                    // Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //         builder: (context) => const SelectRole()));
                     loginapi(context, serverAddress.text.toString(),
                         username.text.toString(), password.text.toString());
                     if (_obscureText == false) {

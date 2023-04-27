@@ -1,8 +1,14 @@
 import 'dart:io';
 import 'dart:typed_data';
-import 'package:erp_app_prac/screens/home.dart';
+import 'package:erp_app_prac/screens/Inbound/inBound.dart';
+import 'package:erp_app_prac/screens/Inbound/inReceiving.dart';
+import 'package:erp_app_prac/screens/Inventory/inventory.dart';
+import 'package:erp_app_prac/screens/Outbound/outBound.dart';
+import 'package:erp_app_prac/screens/Reports/reports.dart';
+import 'package:erp_app_prac/screens/homeScreen.dart';
 import 'package:erp_app_prac/screens/loginScreen.dart';
 import 'package:erp_app_prac/screens/Select_Role.dart';
+import 'package:erp_app_prac/screens/Notification.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
