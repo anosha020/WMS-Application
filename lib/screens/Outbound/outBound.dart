@@ -1,4 +1,9 @@
 import 'package:erp_app_prac/screens/Notification.dart';
+import 'package:erp_app_prac/screens/Outbound/OutConsPicCreate/outConsPicCreate.dart';
+import 'package:erp_app_prac/screens/Outbound/OutConsPicking/outConsPicking.dart';
+import 'package:erp_app_prac/screens/Outbound/OutPick/outPick.dart';
+import 'package:erp_app_prac/screens/Outbound/OutPicking/outPicking.dart';
+import 'package:erp_app_prac/screens/Outbound/PickToCont/pickToCont.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -41,35 +46,61 @@ class _outBoundScreenState extends State<outBoundScreen> {
           SizedBox(height: MediaQuery.of(context).size.height * 0.07),
           MyOptions(
             text: "Out-Pick",
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const outPick()),
+              );
+            },
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.02,
           ),
           MyOptions(
             text: "Out-Picking",
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const outPicking()),
+              );
+            },
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.02,
           ),
           MyOptions(
             text: "Out-Consolidate Picking Create",
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const outConsPicCreate()),
+              );
+            },
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.02,
           ),
           MyOptions(
             text: "Out-Consolidate Picking",
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const outConsPicking()),
+              );
+            },
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.02,
           ),
           MyOptions(
             text: "Pick to Container",
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const pickToCont()),
+              );
+            },
           ),
         ]),
       ),
@@ -87,7 +118,7 @@ class _outBoundScreenState extends State<outBoundScreen> {
               case 1:
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => home()),
+                  MaterialPageRoute(builder: (context) => const home()),
                 );
                 break;
               case 2:

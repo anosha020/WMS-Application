@@ -1,8 +1,9 @@
+import 'package:erp_app_prac/screens/Inventory/InvenAdjust/invenAjust.dart';
+import 'package:erp_app_prac/screens/Inventory/InvenPick/invenPick.dart';
+import 'package:erp_app_prac/screens/Inventory/InvenPut/invenPut.dart';
+import 'package:erp_app_prac/screens/Inventory/InvenQuaran/invenQuaran.dart';
 import 'package:erp_app_prac/screens/Notification.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-
 import '../../widget/headers.dart';
 import '../../widget/myappbar.dart';
 import '../../widget/mybottomNavigator.dart';
@@ -41,28 +42,50 @@ class _inventoryScreenState extends State<inventoryScreen> {
           SizedBox(height: MediaQuery.of(context).size.height * 0.07),
           MyOptions(
             text: "Inventory PICK",
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const invenPick()),
+              );
+            },
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.02,
           ),
           MyOptions(
             text: "Inventory PUT",
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const invenPut()),
+              );
+            },
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.02,
           ),
           MyOptions(
             text: "Inventory Adjustment",
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const invenAdjustment()),
+              );
+            },
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.02,
           ),
           MyOptions(
             text: "Inventory Quarantine",
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const invenQuarantine()),
+              );
+            },
           ),
         ]),
       ),

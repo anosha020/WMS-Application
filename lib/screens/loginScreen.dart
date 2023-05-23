@@ -210,12 +210,12 @@ class _LoginState extends State<Login> {
               InkWell(
                 onTap: () {
                   if (_formkey.currentState!.validate()) {
-                    // Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //         builder: (context) => const SelectRole()));
-                    loginapi(context, serverAddress.text.toString(),
-                        username.text.toString(), password.text.toString());
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SelectRole()));
+                    // loginapi(context, serverAddress.text.toString(),
+                    //     username.text.toString(), password.text.toString());
                     if (_obscureText == false) {
                       _obscureText = true;
                     }

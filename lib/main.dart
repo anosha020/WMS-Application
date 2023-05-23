@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'dart:typed_data';
 import 'package:erp_app_prac/screens/Inbound/inBound.dart';
-import 'package:erp_app_prac/screens/Inbound/inReceiving.dart';
+import 'package:erp_app_prac/screens/Inbound/InReceving/inReceiving.dart';
 import 'package:erp_app_prac/screens/Inventory/inventory.dart';
 import 'package:erp_app_prac/screens/Outbound/outBound.dart';
 import 'package:erp_app_prac/screens/Reports/reports.dart';
@@ -9,6 +9,7 @@ import 'package:erp_app_prac/screens/homeScreen.dart';
 import 'package:erp_app_prac/screens/loginScreen.dart';
 import 'package:erp_app_prac/screens/Select_Role.dart';
 import 'package:erp_app_prac/screens/Notification.dart';
+import 'package:erp_app_prac/screens/Reports/customLedger.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Login(),
+      home:const Login(),
     );
   }
 }

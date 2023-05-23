@@ -1,22 +1,20 @@
+import 'package:erp_app_prac/screens/Notification.dart';
+import 'package:erp_app_prac/screens/Reports/reports.dart';
+import 'package:erp_app_prac/screens/homeScreen.dart';
 import 'package:erp_app_prac/utils/color.dart';
 import 'package:erp_app_prac/widget/headers.dart';
 import 'package:erp_app_prac/widget/myappbar.dart';
 import 'package:erp_app_prac/widget/mybottomNavigator.dart';
 import 'package:erp_app_prac/widget/mydrawer.dart';
 import 'package:flutter/material.dart';
-
-import '../Notification.dart';
-import '../Reports/reports.dart';
-import '../homeScreen.dart';
-
-class inReceivingScreen extends StatefulWidget {
-  const inReceivingScreen({super.key});
+class pickToCont extends StatefulWidget {
+  const pickToCont({super.key});
 
   @override
-  State<inReceivingScreen> createState() => _inReceivingScreenState();
+  State<pickToCont> createState() => _pickToContState();
 }
 
-class _inReceivingScreenState extends State<inReceivingScreen> {
+class _pickToContState extends State<pickToCont> {
   int _selectedIndex = 2;
 
   void _onItemTapped(int index) {
@@ -33,7 +31,7 @@ class _inReceivingScreenState extends State<inReceivingScreen> {
       body: Column(
         children: [
           const header2(
-            text: "INBOUND",
+            text: "OUTBOUND",
           ),
           Expanded(
             child: ListView.builder(
@@ -98,8 +96,7 @@ class _inReceivingScreenState extends State<inReceivingScreen> {
                         ),
                       ),
                       Container(
-                        padding:
-                            const EdgeInsets.only(left: 10, bottom: 20, top: 5),
+                        padding: const EdgeInsets.only(left: 10, top: 5),
                         child: Row(
                           children: const [
                             Text(
@@ -109,12 +106,37 @@ class _inReceivingScreenState extends State<inReceivingScreen> {
                               ),
                             ),
                             SizedBox(
-                              width: 59,
+                              width: 58,
                             ),
                             Expanded(
                               flex: 2,
                               child: Text(
                                 "Mushahid",
+                                style:
+                                    TextStyle(fontSize: 14, color: iconColor),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      Container(
+                        padding:
+                            const EdgeInsets.only(left: 10, bottom: 20, top: 5),
+                        child: Row(
+                          children: const [
+                            Text(
+                              "Shipment Date",
+                              style: TextStyle(
+                                fontSize: 14,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 71,
+                            ),
+                            Expanded(
+                              flex: 2,
+                              child: Text(
+                                "18/4/2023",
                                 style:
                                     TextStyle(fontSize: 14, color: iconColor),
                               ),

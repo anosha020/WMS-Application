@@ -1,8 +1,12 @@
 import 'package:erp_app_prac/screens/Notification.dart';
+import 'package:erp_app_prac/screens/Reports/customLedger.dart';
+import 'package:erp_app_prac/screens/Reports/generalLedger.dart';
+import 'package:erp_app_prac/screens/Reports/goodsMovemDetails.dart';
+import 'package:erp_app_prac/screens/Reports/goodsReceDetails.dart';
+import 'package:erp_app_prac/screens/Reports/purchInvoiceDetail.dart';
+import 'package:erp_app_prac/screens/Reports/salesInvoiceDetail.dart';
+import 'package:erp_app_prac/screens/Reports/stockReport.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-
 import '../../widget/headers.dart';
 import '../../widget/myappbar.dart';
 import '../../widget/mybottomNavigator.dart';
@@ -40,49 +44,84 @@ class _reportScreenState extends State<reportScreen> {
           SizedBox(height: MediaQuery.of(context).size.height * 0.07),
           MyOptions(
             text: "Customer Ledger",
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const customLedger()),
+              );
+            },
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.02,
           ),
           MyOptions(
             text: "General Ledger",
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const generalLedger()),
+              );
+            },
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.02,
           ),
           MyOptions(
             text: "Stock Report",
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const stockReport()),
+              );
+            },
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.02,
           ),
           MyOptions(
             text: "Sales Invoice Detail",
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const salesInvoDetail()),
+              );
+            },
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.02,
           ),
           MyOptions(
             text: "Purchase Invoice Detail",
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const purchInvoiceDetail()),
+              );
+            },
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.02,
           ),
           MyOptions(
             text: "Goods Receiving Details",
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const goodsReceDetails()),
+              );
+            },
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.02,
           ),
           MyOptions(
             text: "Goods Movement Details",
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const goodsMovDetails()),
+              );
+            },
           ),
         ]),
       ),
