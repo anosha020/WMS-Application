@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 import 'package:erp_app_prac/screens/Inbound/inBound.dart';
 import 'package:erp_app_prac/screens/Inventory/inventory.dart';
 import 'package:erp_app_prac/screens/Notification.dart';
@@ -116,13 +118,13 @@ class _homeState extends State<home> {
               case 1:
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => home()),
+                  MaterialPageRoute(builder: (context) => const home()),
                 );
                 break;
               case 2:
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => home()),
+                  MaterialPageRoute(builder: (context) =>const home()),
                 );
                 break;
               case 3:
@@ -134,7 +136,7 @@ class _homeState extends State<home> {
               case 4:
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => reportScreen()),
+                  MaterialPageRoute(builder: (context) => const reportScreen()),
                 );
                 break;
             }
@@ -215,7 +217,7 @@ class _homeState extends State<home> {
 }
 
 class Buttons extends StatelessWidget {
-  Buttons(
+  const Buttons(
       {Key? key,
       required this.text,
       required this.icon,
@@ -232,7 +234,7 @@ class Buttons extends StatelessWidget {
       child: InkWell(
         onTap: onPressed,
         child: Container(
-          margin: EdgeInsets.only(right: 50, left: 50),
+          margin:const EdgeInsets.only(right: 50, left: 50),
           height: MediaQuery.of(context).size.height * 0.07,
           decoration: BoxDecoration(
             border: Border.all(

@@ -1,9 +1,10 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:erp_app_prac/widget/headers.dart';
 import 'package:erp_app_prac/widget/myappbar.dart';
 import 'package:erp_app_prac/widget/mydrawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import '../widget/mybottomNavigator.dart';
 import 'Reports/reports.dart';
 import 'homeScreen.dart';
@@ -25,10 +26,10 @@ class _NotificationPageState extends State<NotificationPage> {
     // NotificationItem(message: 'No New Notifications', time: DateTime.now()),
     NotificationItem(
         message: 'Your package has been delivered',
-        time: DateTime.now().subtract(Duration(days: 1))),
+        time: DateTime.now().subtract(const Duration(days: 1))),
     NotificationItem(
         message: 'Your account is about to expire',
-        time: DateTime.now().subtract(Duration(days: 2))),
+        time: DateTime.now().subtract(const Duration(days: 2))),
   ];
   int _selectedIndex = 3;
 
@@ -59,7 +60,7 @@ class _NotificationPageState extends State<NotificationPage> {
         padding: const EdgeInsets.only(top: 10),
         child: ListView(
           children: [
-            header(text: "Notifications"),
+            const header(text: "Notifications"),
             // Container(
             //   height: screenHeight * 0.075, // Set the height of the top bar
             //   color: Colors.white, // Set the background color of the top bar

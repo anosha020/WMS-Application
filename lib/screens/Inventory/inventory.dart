@@ -45,7 +45,7 @@ class _inventoryScreenState extends State<inventoryScreen> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const invenPick()),
+                MaterialPageRoute(builder: (context) => const InventoryPick()),
               );
             },
           ),

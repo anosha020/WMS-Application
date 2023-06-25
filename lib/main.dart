@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'dart:typed_data';
+import 'package:erp_app_prac/screens/splashScreen.dart';
 import 'package:erp_app_prac/screens/Inbound/inBound.dart';
 import 'package:erp_app_prac/screens/Inbound/InReceving/inReceiving.dart';
 import 'package:erp_app_prac/screens/Inventory/inventory.dart';
@@ -15,28 +16,31 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 void main() async {
-  HttpOverrides.global = new MyHttpOverrides();
+  HttpOverrides.global = MyHttpOverrides();
   WidgetsFlutterBinding.ensureInitialized();
-
-  // ByteData data = await PlatformAssetBundle().load('assets/ca/lets-encrypt-r3.pem');
-  // SecurityContext.defaultContext.setTrustedCertificatesBytes(data.buffer.asUint8List());
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  // final bool isLoggedIn;
+
+  // const MyApp({required this.isLoggedIn});
   const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home:const Login(),
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        initialRoute: '/',
+        routes: {
+          '/': (context) => const SplashScreen(),
+          // '/login': (context) =>const Login(),
+        });
   }
 }
 
