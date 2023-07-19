@@ -59,19 +59,17 @@ class Records {
   bool? isInTransit;
   DocStatus? docStatus;
   ADClientID? cDocTypeID;
-  bool? isApproved;
-  double? processedOn;
-  ADClientID? cOrderID;
-  String? modelName;
-  ADClientID? cBPartnerID;
-  ADClientID? cBPartnerLocationID;
-  ADClientID? cActivityID;
   int? approvalAmt;
+  bool? isApproved;
   int? chargeAmt;
   int? freightAmt;
   ADClientID? mWarehouseID;
   ADClientID? mWarehouseToID;
+  String? modelName;
   ADClientID? salesRepID;
+  ADClientID? cBPartnerID;
+  ADClientID? cBPartnerLocationID;
+  String? pOReference;
 
   Records(
       {this.id,
@@ -90,19 +88,17 @@ class Records {
       this.isInTransit,
       this.docStatus,
       this.cDocTypeID,
-      this.isApproved,
-      this.processedOn,
-      this.cOrderID,
-      this.modelName,
-      this.cBPartnerID,
-      this.cBPartnerLocationID,
-      this.cActivityID,
       this.approvalAmt,
+      this.isApproved,
       this.chargeAmt,
       this.freightAmt,
       this.mWarehouseID,
       this.mWarehouseToID,
-      this.salesRepID});
+      this.modelName,
+      this.salesRepID,
+      this.cBPartnerID,
+      this.cBPartnerLocationID,
+      this.pOReference});
 
   Records.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -133,22 +129,8 @@ class Records {
     cDocTypeID = json['C_DocType_ID'] != null
         ? ADClientID.fromJson(json['C_DocType_ID'])
         : null;
-    isApproved = json['IsApproved'];
-    processedOn = json['ProcessedOn'];
-    cOrderID = json['C_Order_ID'] != null
-        ? ADClientID.fromJson(json['C_Order_ID'])
-        : null;
-    modelName = json['model-name'];
-    cBPartnerID = json['C_BPartner_ID'] != null
-        ? ADClientID.fromJson(json['C_BPartner_ID'])
-        : null;
-    cBPartnerLocationID = json['C_BPartner_Location_ID'] != null
-        ? ADClientID.fromJson(json['C_BPartner_Location_ID'])
-        : null;
-    cActivityID = json['C_Activity_ID'] != null
-        ? ADClientID.fromJson(json['C_Activity_ID'])
-        : null;
     approvalAmt = json['ApprovalAmt'];
+    isApproved = json['IsApproved'];
     chargeAmt = json['ChargeAmt'];
     freightAmt = json['FreightAmt'];
     mWarehouseID = json['M_Warehouse_ID'] != null
@@ -157,9 +139,17 @@ class Records {
     mWarehouseToID = json['M_WarehouseTo_ID'] != null
         ? ADClientID.fromJson(json['M_WarehouseTo_ID'])
         : null;
+    modelName = json['model-name'];
     salesRepID = json['SalesRep_ID'] != null
         ? ADClientID.fromJson(json['SalesRep_ID'])
         : null;
+    cBPartnerID = json['C_BPartner_ID'] != null
+        ? ADClientID.fromJson(json['C_BPartner_ID'])
+        : null;
+    cBPartnerLocationID = json['C_BPartner_Location_ID'] != null
+        ? ADClientID.fromJson(json['C_BPartner_Location_ID'])
+        : null;
+    pOReference = json['POReference'];
   }
 
   Map<String, dynamic> toJson() {
@@ -192,22 +182,8 @@ class Records {
     if (cDocTypeID != null) {
       data['C_DocType_ID'] = cDocTypeID!.toJson();
     }
-    data['IsApproved'] = isApproved;
-    data['ProcessedOn'] = processedOn;
-    if (cOrderID != null) {
-      data['C_Order_ID'] = cOrderID!.toJson();
-    }
-    data['model-name'] = modelName;
-    if (cBPartnerID != null) {
-      data['C_BPartner_ID'] = cBPartnerID!.toJson();
-    }
-    if (cBPartnerLocationID != null) {
-      data['C_BPartner_Location_ID'] = cBPartnerLocationID!.toJson();
-    }
-    if (cActivityID != null) {
-      data['C_Activity_ID'] = cActivityID!.toJson();
-    }
     data['ApprovalAmt'] = approvalAmt;
+    data['IsApproved'] = isApproved;
     data['ChargeAmt'] = chargeAmt;
     data['FreightAmt'] = freightAmt;
     if (mWarehouseID != null) {
@@ -216,9 +192,17 @@ class Records {
     if (mWarehouseToID != null) {
       data['M_WarehouseTo_ID'] = mWarehouseToID!.toJson();
     }
+    data['model-name'] = modelName;
     if (salesRepID != null) {
       data['SalesRep_ID'] = salesRepID!.toJson();
     }
+    if (cBPartnerID != null) {
+      data['C_BPartner_ID'] = cBPartnerID!.toJson();
+    }
+    if (cBPartnerLocationID != null) {
+      data['C_BPartner_Location_ID'] = cBPartnerLocationID!.toJson();
+    }
+    data['POReference'] = pOReference;
     return data;
   }
 }

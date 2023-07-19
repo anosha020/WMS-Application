@@ -3,6 +3,7 @@
 import 'dart:convert';
 import 'dart:io';
 // import 'package:erp_app_prac/screens/home.dart';
+import 'package:erp_app_prac/models/in_putaway_model.dart';
 import 'package:erp_app_prac/models/inventory_pick_model.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -79,6 +80,7 @@ Future putApiCall(String postToken) async {
       print("---------------------");
       print("THIS IS PUT TOKE $token");
       getInventoryPick(token);
+      getInPutAway(token);
     } else if (putResponse.statusCode == 401) {
       print("error 401");
     } else {
@@ -94,8 +96,8 @@ Future<InventoryPickModel?>? getInventoryPick(String putToken) async {
   Map body = {"filter": "Doc", "Status": "DR", "M_Warehouse_ID": 1000000};
   try {
     var getUrl =
-        Uri.parse("https://202.163.101.238:4443/api/v1/models/m_movement");
-    print("hitting get url");
+        Uri.parse("https://202.163.101.238:4443/api/v1/models/m_movement/m_movement?\$filter=DocStatus eq 'DR' and M_Warehouse_ID eq 1000000");
+    print("hitting inventory pick url");
     var getResponse = await http.get(
       getUrl,
       headers: {
@@ -105,16 +107,54 @@ Future<InventoryPickModel?>? getInventoryPick(String putToken) async {
       // body: jsonEncode(body),
     );
     var getjsonData = jsonDecode(getResponse.body);
-    print("Status code of Gett api: ${getResponse.statusCode}");
+    print("Status code of inventory pick api: ${getResponse.statusCode}");
     if (getResponse.statusCode == 200) {
       InventoryPickModel inventoryPick =
           InventoryPickModel.fromJson(getjsonData);
+      print("///////////////working/////////");
 
       // print("Working fine put api");
       // getToken = getjsonData["page-count"];
       // print("---------------------");
       // print("----------THIS IS GET TOKE $getToken----------");
       return inventoryPick;
+    } else if (getResponse.statusCode == 401) {
+      return null;
+      print("error 401");
+    } else {
+      return null;
+      print("error");
+    }
+  } catch (e) {
+    return null;
+    print("-----------------------");
+    print("this is the $e");
+  }
+}
+
+Future<InPutAwayModel?>? getInPutAway(String putToken) async {
+  Map body = {"filter": "Doc", "Status": "DR", "M_Warehouse_ID": 1000000};
+  try {
+    var getUrl =
+        Uri.parse("https://202.163.101.238:4443/api/v1/models/m_inout?");
+    print("hitting in putaway url");
+    var getResponse = await http.get(
+      getUrl,
+      headers: {
+        HttpHeaders.contentTypeHeader: "application/json",
+        'Authorization': 'Bearer $putToken'
+      },
+      // body: jsonEncode(body),
+    );
+    var getjsonData = jsonDecode(getResponse.body);
+    print("Status code of In PUTAWAY api: ${getResponse.statusCode}");
+    print(getjsonData);
+    if (getResponse.statusCode == 200) {
+      InPutAwayModel inputaway = InPutAwayModel.fromJson(getjsonData);
+      print("///////////////working inutaway/////////");
+      // getToken = getjsonData["page-count"];
+      // print("----------THIS IS GET TOKE $getToken----------");
+      return inputaway;
     } else if (getResponse.statusCode == 401) {
       return null;
       print("error 401");
