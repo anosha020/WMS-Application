@@ -1,12 +1,9 @@
 import 'dart:async';
-import 'package:erp_app_prac/screens/Select_Role.dart';
+import 'package:erp_app_prac/screens/barcode_scanner/scanning_result_screen.dart';
 import 'package:erp_app_prac/screens/homeScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:erp_app_prac/screens/loginScreen.dart';
-import 'package:erp_app_prac/utils/color.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_svg/svg.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -44,7 +41,9 @@ class SplashScreenState extends State<SplashScreen> {
       if (isLoggedIn != null) {
         if (isLoggedIn) {
           Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) => const home()));
+              context,
+              MaterialPageRoute(
+                  builder: (context) => home()));
         } else {
           Navigator.pushReplacement(
               context, MaterialPageRoute(builder: (context) => const Login()));

@@ -5,6 +5,7 @@ import 'package:erp_app_prac/screens/Inventory/inventory.dart';
 import 'package:erp_app_prac/screens/Notification.dart';
 import 'package:erp_app_prac/screens/Outbound/outBound.dart';
 import 'package:erp_app_prac/screens/Reports/reports.dart';
+import 'package:erp_app_prac/screens/barcode_scanner/scanning_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -112,7 +113,8 @@ class _homeState extends State<home> {
               case 0:
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => home()),
+                  MaterialPageRoute(
+                      builder: (context) => BarcodeScannerScreen()),
                 );
                 break;
               case 1:
@@ -124,7 +126,7 @@ class _homeState extends State<home> {
               case 2:
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) =>const home()),
+                  MaterialPageRoute(builder: (context) => const home()),
                 );
                 break;
               case 3:
@@ -234,7 +236,7 @@ class Buttons extends StatelessWidget {
       child: InkWell(
         onTap: onPressed,
         child: Container(
-          margin:const EdgeInsets.only(right: 50, left: 50),
+          margin: const EdgeInsets.only(right: 50, left: 50),
           height: MediaQuery.of(context).size.height * 0.07,
           decoration: BoxDecoration(
             border: Border.all(

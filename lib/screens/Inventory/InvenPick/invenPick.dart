@@ -4,7 +4,7 @@ import 'package:erp_app_prac/screens/Inventory/InvenPick/invenPickDetail.dart';
 import 'package:erp_app_prac/screens/Notification.dart';
 import 'package:erp_app_prac/screens/Reports/reports.dart';
 import 'package:erp_app_prac/screens/homeScreen.dart';
-import 'package:erp_app_prac/service/loginapi.dart';
+import 'package:erp_app_prac/service/apis.dart';
 import 'package:erp_app_prac/utils/color.dart';
 import 'package:erp_app_prac/widget/headers.dart';
 import 'package:erp_app_prac/widget/myappbar.dart';
@@ -51,8 +51,10 @@ class _InventoryPickState extends State<InventoryPick> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        const DetailScreen()));
+                                    builder: (context) => DetailScreen(
+                                          itemId: snapshot
+                                              .data!.records![index].id!,
+                                        )));
                           },
                           child: Card(
                             elevation: 5.0,
@@ -63,31 +65,6 @@ class _InventoryPickState extends State<InventoryPick> {
                             ),
                             child: Column(
                               children: [
-                                // Container(
-                                //   padding: const EdgeInsets.only(top: 20, left: 10),
-                                //   child: Row(
-                                //     children: const [
-                                //       Text(
-                                //         "Business Partner",
-                                //         style: TextStyle(
-                                //             fontSize: 16, fontWeight: FontWeight.bold),
-                                //       ),
-                                //       SizedBox(
-                                //         width: 40,
-                                //       ),
-                                //       Expanded(
-                                //         flex: 2,
-                                //         child: Text(
-                                //           "Mushahid Hussain",
-                                //           style: TextStyle(
-                                //               fontSize: 16,
-                                //               color: iconColor,
-                                //               fontWeight: FontWeight.bold),
-                                //         ),
-                                //       )
-                                //     ],
-                                //   ),
-                                // ),
                                 Container(
                                   padding:
                                       const EdgeInsets.only(left: 10, top: 5),

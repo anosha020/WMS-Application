@@ -2,6 +2,7 @@ import 'package:erp_app_prac/screens/Inventory/InvenAdjust/invenAjust.dart';
 import 'package:erp_app_prac/screens/Inventory/InvenPick/invenPick.dart';
 import 'package:erp_app_prac/screens/Inventory/InvenPut/invenPut.dart';
 import 'package:erp_app_prac/screens/Inventory/InvenQuaran/invenQuaran.dart';
+import 'package:erp_app_prac/screens/Inventory/current_stock_screen.dart';
 import 'package:erp_app_prac/screens/Notification.dart';
 import 'package:flutter/material.dart';
 import '../../widget/headers.dart';
@@ -84,6 +85,19 @@ class _inventoryScreenState extends State<inventoryScreen> {
                 context,
                 MaterialPageRoute(
                     builder: (context) => const invenQuarantine()),
+              );
+            },
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.02,
+          ),
+          MyOptions(
+            text: "Current Stock",
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const CurrentStockScreen()),
               );
             },
           ),

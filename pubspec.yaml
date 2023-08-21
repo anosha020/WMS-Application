@@ -39,6 +39,7 @@ dependencies:
   http:
   flutter_svg: ^2.0.4
   get: ^4.6.5
+  flutter_barcode_scanner: ^2.0.0
   # flutter_secure_storage:
 
 dev_dependencies:

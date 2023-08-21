@@ -1,4 +1,9 @@
+// ignore_for_file: use_build_context_synchronously
+
+import 'package:erp_app_prac/screens/barcode_scanner/scanning_result_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter_svg/svg.dart';
 
 class MyBottomNavigationBar extends StatefulWidget {
@@ -31,8 +36,12 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
         showSelectedLabels: false,
         showUnselectedLabels: false,
         items: [
-          BottomNavigationBarItem(
-              icon: SvgPicture.asset("assets/images/Analytics.svg"),
+          const BottomNavigationBarItem(
+              // icon: SvgPicture.asset("assets/images/Analytics.svg"),
+              icon: Icon(
+                Icons.qr_code_2_sharp,
+                color: Colors.white,
+              ),
               label: "analysis"),
           BottomNavigationBarItem(
               icon: SvgPicture.asset("assets/images/Approvals.svg"),

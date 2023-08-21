@@ -45,7 +45,6 @@ class InPutAwayModel {
 class Records {
   int? id;
   String? uid;
-  String? description;
   MovementType? movementType;
   String? movementDate;
   bool? processed;
@@ -64,47 +63,46 @@ class Records {
   ADClientID? cBPartnerID;
   ADClientID? cBPartnerLocationID;
   ADClientID? mWarehouseID;
-  String? pOReference;
   MovementType? deliveryRule;
   MovementType? freightCostRule;
   int? freightAmt;
   MovementType? deliveryViaRule;
   int? chargeAmt;
   MovementType? priorityRule;
+  ADClientID? cOrderID;
+  String? dateOrdered;
   MovementType? docStatus;
   bool? sendEMail;
   int? noPackages;
+  String? dateReceived;
   bool? isInTransit;
   bool? isApproved;
   bool? isInDispute;
+  bool? isDropShip;
+  bool? isAlternateReturnAddress;
+  MovementType? isCrossDock;
+  String? modelName;
+  String? description;
+  ADClientID? aDUserID;
+  String? pOReference;
   int? volume;
   int? weight;
-  bool? isDropShip;
-  double? processedOn;
-  bool? isAlternateReturnAddress;
+  int? processedOn;
   String? sealNo;
   ADClientID? mContainerTypeID;
   String? vehicleNo;
-  String? driverName;
-  MovementType? isCrossDock;
-  String? modelName;
-  ADClientID? cOrderID;
-  String? dateOrdered;
-  String? dateReceived;
   String? receiverName;
-  String? dockNo;
-  ADClientID? aDUserID;
+  String? driverName;
   ADClientID? eRTransactionTypeID;
-  String? gateInTime;
+  String? dockNo;
   String? dockInTime;
   String? dockOutTime;
+  String? gateInTime;
   String? gateOutTime;
-  String? billtyNo;
 
   Records(
       {this.id,
       this.uid,
-      this.description,
       this.movementType,
       this.movementDate,
       this.processed,
@@ -123,47 +121,46 @@ class Records {
       this.cBPartnerID,
       this.cBPartnerLocationID,
       this.mWarehouseID,
-      this.pOReference,
       this.deliveryRule,
       this.freightCostRule,
       this.freightAmt,
       this.deliveryViaRule,
       this.chargeAmt,
       this.priorityRule,
+      this.cOrderID,
+      this.dateOrdered,
       this.docStatus,
       this.sendEMail,
       this.noPackages,
+      this.dateReceived,
       this.isInTransit,
       this.isApproved,
       this.isInDispute,
+      this.isDropShip,
+      this.isAlternateReturnAddress,
+      this.isCrossDock,
+      this.modelName,
+      this.description,
+      this.aDUserID,
+      this.pOReference,
       this.volume,
       this.weight,
-      this.isDropShip,
       this.processedOn,
-      this.isAlternateReturnAddress,
       this.sealNo,
       this.mContainerTypeID,
       this.vehicleNo,
-      this.driverName,
-      this.isCrossDock,
-      this.modelName,
-      this.cOrderID,
-      this.dateOrdered,
-      this.dateReceived,
       this.receiverName,
-      this.dockNo,
-      this.aDUserID,
+      this.driverName,
       this.eRTransactionTypeID,
-      this.gateInTime,
+      this.dockNo,
       this.dockInTime,
       this.dockOutTime,
-      this.gateOutTime,
-      this.billtyNo});
+      this.gateInTime,
+      this.gateOutTime});
 
   Records.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     uid = json['uid'];
-    description = json['Description'];
     movementType = json['MovementType'] != null
         ? new MovementType.fromJson(json['MovementType'])
         : null;
@@ -200,7 +197,6 @@ class Records {
     mWarehouseID = json['M_Warehouse_ID'] != null
         ? new ADClientID.fromJson(json['M_Warehouse_ID'])
         : null;
-    pOReference = json['POReference'];
     deliveryRule = json['DeliveryRule'] != null
         ? new MovementType.fromJson(json['DeliveryRule'])
         : null;
@@ -215,54 +211,54 @@ class Records {
     priorityRule = json['PriorityRule'] != null
         ? new MovementType.fromJson(json['PriorityRule'])
         : null;
+    cOrderID = json['C_Order_ID'] != null
+        ? new ADClientID.fromJson(json['C_Order_ID'])
+        : null;
+    dateOrdered = json['DateOrdered'];
     docStatus = json['DocStatus'] != null
         ? new MovementType.fromJson(json['DocStatus'])
         : null;
     sendEMail = json['SendEMail'];
     noPackages = json['NoPackages'];
+    dateReceived = json['DateReceived'];
     isInTransit = json['IsInTransit'];
     isApproved = json['IsApproved'];
     isInDispute = json['IsInDispute'];
+    isDropShip = json['IsDropShip'];
+    isAlternateReturnAddress = json['IsAlternateReturnAddress'];
+    isCrossDock = json['IsCrossDock'] != null
+        ? new MovementType.fromJson(json['IsCrossDock'])
+        : null;
+    modelName = json['model-name'];
+    description = json['Description'];
+    aDUserID = json['AD_User_ID'] != null
+        ? new ADClientID.fromJson(json['AD_User_ID'])
+        : null;
+    pOReference = json['POReference'];
     volume = json['Volume'];
     weight = json['Weight'];
-    isDropShip = json['IsDropShip'];
     processedOn = json['ProcessedOn'];
-    isAlternateReturnAddress = json['IsAlternateReturnAddress'];
     sealNo = json['SealNo'];
     mContainerTypeID = json['M_ContainerType_ID'] != null
         ? new ADClientID.fromJson(json['M_ContainerType_ID'])
         : null;
     vehicleNo = json['VehicleNo'];
-    driverName = json['DriverName'];
-    isCrossDock = json['IsCrossDock'] != null
-        ? new MovementType.fromJson(json['IsCrossDock'])
-        : null;
-    modelName = json['model-name'];
-    cOrderID = json['C_Order_ID'] != null
-        ? new ADClientID.fromJson(json['C_Order_ID'])
-        : null;
-    dateOrdered = json['DateOrdered'];
-    dateReceived = json['DateReceived'];
     receiverName = json['ReceiverName'];
-    dockNo = json['DockNo'];
-    aDUserID = json['AD_User_ID'] != null
-        ? new ADClientID.fromJson(json['AD_User_ID'])
-        : null;
+    driverName = json['DriverName'];
     eRTransactionTypeID = json['ER_TransactionType_ID'] != null
         ? new ADClientID.fromJson(json['ER_TransactionType_ID'])
         : null;
-    gateInTime = json['GateInTime'];
+    dockNo = json['DockNo'];
     dockInTime = json['DockInTime'];
     dockOutTime = json['DockOutTime'];
+    gateInTime = json['GateInTime'];
     gateOutTime = json['GateOutTime'];
-    billtyNo = json['BilltyNo'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['id'] = this.id;
     data['uid'] = this.uid;
-    data['Description'] = this.description;
     if (this.movementType != null) {
       data['MovementType'] = this.movementType!.toJson();
     }
@@ -299,7 +295,6 @@ class Records {
     if (this.mWarehouseID != null) {
       data['M_Warehouse_ID'] = this.mWarehouseID!.toJson();
     }
-    data['POReference'] = this.pOReference;
     if (this.deliveryRule != null) {
       data['DeliveryRule'] = this.deliveryRule!.toJson();
     }
@@ -314,47 +309,48 @@ class Records {
     if (this.priorityRule != null) {
       data['PriorityRule'] = this.priorityRule!.toJson();
     }
+    if (this.cOrderID != null) {
+      data['C_Order_ID'] = this.cOrderID!.toJson();
+    }
+    data['DateOrdered'] = this.dateOrdered;
     if (this.docStatus != null) {
       data['DocStatus'] = this.docStatus!.toJson();
     }
     data['SendEMail'] = this.sendEMail;
     data['NoPackages'] = this.noPackages;
+    data['DateReceived'] = this.dateReceived;
     data['IsInTransit'] = this.isInTransit;
     data['IsApproved'] = this.isApproved;
     data['IsInDispute'] = this.isInDispute;
+    data['IsDropShip'] = this.isDropShip;
+    data['IsAlternateReturnAddress'] = this.isAlternateReturnAddress;
+    if (this.isCrossDock != null) {
+      data['IsCrossDock'] = this.isCrossDock!.toJson();
+    }
+    data['model-name'] = this.modelName;
+    data['Description'] = this.description;
+    if (this.aDUserID != null) {
+      data['AD_User_ID'] = this.aDUserID!.toJson();
+    }
+    data['POReference'] = this.pOReference;
     data['Volume'] = this.volume;
     data['Weight'] = this.weight;
-    data['IsDropShip'] = this.isDropShip;
     data['ProcessedOn'] = this.processedOn;
-    data['IsAlternateReturnAddress'] = this.isAlternateReturnAddress;
     data['SealNo'] = this.sealNo;
     if (this.mContainerTypeID != null) {
       data['M_ContainerType_ID'] = this.mContainerTypeID!.toJson();
     }
     data['VehicleNo'] = this.vehicleNo;
-    data['DriverName'] = this.driverName;
-    if (this.isCrossDock != null) {
-      data['IsCrossDock'] = this.isCrossDock!.toJson();
-    }
-    data['model-name'] = this.modelName;
-    if (this.cOrderID != null) {
-      data['C_Order_ID'] = this.cOrderID!.toJson();
-    }
-    data['DateOrdered'] = this.dateOrdered;
-    data['DateReceived'] = this.dateReceived;
     data['ReceiverName'] = this.receiverName;
-    data['DockNo'] = this.dockNo;
-    if (this.aDUserID != null) {
-      data['AD_User_ID'] = this.aDUserID!.toJson();
-    }
+    data['DriverName'] = this.driverName;
     if (this.eRTransactionTypeID != null) {
       data['ER_TransactionType_ID'] = this.eRTransactionTypeID!.toJson();
     }
-    data['GateInTime'] = this.gateInTime;
+    data['DockNo'] = this.dockNo;
     data['DockInTime'] = this.dockInTime;
     data['DockOutTime'] = this.dockOutTime;
+    data['GateInTime'] = this.gateInTime;
     data['GateOutTime'] = this.gateOutTime;
-    data['BilltyNo'] = this.billtyNo;
     return data;
   }
 }

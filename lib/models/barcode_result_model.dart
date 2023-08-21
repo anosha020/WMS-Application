@@ -1,4 +1,4 @@
-class InventoryPickModel {
+class BarcodeResultModel {
   int? pageCount;
   int? recordsSize;
   int? skipRecords;
@@ -6,7 +6,7 @@ class InventoryPickModel {
   int? arrayCount;
   List<Records>? records;
 
-  InventoryPickModel(
+  BarcodeResultModel(
       {this.pageCount,
       this.recordsSize,
       this.skipRecords,
@@ -14,7 +14,7 @@ class InventoryPickModel {
       this.arrayCount,
       this.records});
 
-  InventoryPickModel.fromJson(Map<String, dynamic> json) {
+  BarcodeResultModel.fromJson(Map<String, dynamic> json) {
     pageCount = json['page-count'];
     recordsSize = json['records-size'];
     skipRecords = json['skip-records'];
@@ -50,26 +50,17 @@ class Records {
   bool? isActive;
   String? created;
   ADClientID? createdBy;
-  ADClientID? updatedBy;
   String? updated;
-  String? documentNo;
+  ADClientID? updatedBy;
+  MovementType? movementType;
+  ADClientID? mLocatorID;
+  ADClientID? mProductID;
   String? movementDate;
-  bool? processed;
-  bool? processing;
-  bool? isInTransit;
-  DocStatus? docStatus;
-  ADClientID? cDocTypeID;
-  int? approvalAmt;
-  bool? isApproved;
-  int? chargeAmt;
-  int? freightAmt;
-  ADClientID? mWarehouseID;
-  ADClientID? mWarehouseToID;
+  int? movementQty;
+  ADClientID? mInOutLineID;
+  ADClientID? mAttributeSetInstanceID;
   String? modelName;
-  ADClientID? salesRepID;
-  ADClientID? cBPartnerID;
-  ADClientID? cBPartnerLocationID;
-  String? pOReference;
+  ADClientID? mMovementLineID;
 
   Records(
       {this.id,
@@ -79,26 +70,17 @@ class Records {
       this.isActive,
       this.created,
       this.createdBy,
-      this.updatedBy,
       this.updated,
-      this.documentNo,
+      this.updatedBy,
+      this.movementType,
+      this.mLocatorID,
+      this.mProductID,
       this.movementDate,
-      this.processed,
-      this.processing,
-      this.isInTransit,
-      this.docStatus,
-      this.cDocTypeID,
-      this.approvalAmt,
-      this.isApproved,
-      this.chargeAmt,
-      this.freightAmt,
-      this.mWarehouseID,
-      this.mWarehouseToID,
+      this.movementQty,
+      this.mInOutLineID,
+      this.mAttributeSetInstanceID,
       this.modelName,
-      this.salesRepID,
-      this.cBPartnerID,
-      this.cBPartnerLocationID,
-      this.pOReference});
+      this.mMovementLineID});
 
   Records.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -114,42 +96,31 @@ class Records {
     createdBy = json['CreatedBy'] != null
         ? new ADClientID.fromJson(json['CreatedBy'])
         : null;
+    updated = json['Updated'];
     updatedBy = json['UpdatedBy'] != null
         ? new ADClientID.fromJson(json['UpdatedBy'])
         : null;
-    updated = json['Updated'];
-    documentNo = json['DocumentNo'];
+    movementType = json['MovementType'] != null
+        ? new MovementType.fromJson(json['MovementType'])
+        : null;
+    mLocatorID = json['M_Locator_ID'] != null
+        ? new ADClientID.fromJson(json['M_Locator_ID'])
+        : null;
+    mProductID = json['M_Product_ID'] != null
+        ? new ADClientID.fromJson(json['M_Product_ID'])
+        : null;
     movementDate = json['MovementDate'];
-    processed = json['Processed'];
-    processing = json['Processing'];
-    isInTransit = json['IsInTransit'];
-    docStatus = json['DocStatus'] != null
-        ? new DocStatus.fromJson(json['DocStatus'])
+    movementQty = json['MovementQty'];
+    mInOutLineID = json['M_InOutLine_ID'] != null
+        ? new ADClientID.fromJson(json['M_InOutLine_ID'])
         : null;
-    cDocTypeID = json['C_DocType_ID'] != null
-        ? new ADClientID.fromJson(json['C_DocType_ID'])
-        : null;
-    approvalAmt = json['ApprovalAmt'];
-    isApproved = json['IsApproved'];
-    chargeAmt = json['ChargeAmt'];
-    freightAmt = json['FreightAmt'];
-    mWarehouseID = json['M_Warehouse_ID'] != null
-        ? new ADClientID.fromJson(json['M_Warehouse_ID'])
-        : null;
-    mWarehouseToID = json['M_WarehouseTo_ID'] != null
-        ? new ADClientID.fromJson(json['M_WarehouseTo_ID'])
+    mAttributeSetInstanceID = json['M_AttributeSetInstance_ID'] != null
+        ? new ADClientID.fromJson(json['M_AttributeSetInstance_ID'])
         : null;
     modelName = json['model-name'];
-    salesRepID = json['SalesRep_ID'] != null
-        ? new ADClientID.fromJson(json['SalesRep_ID'])
+    mMovementLineID = json['M_MovementLine_ID'] != null
+        ? new ADClientID.fromJson(json['M_MovementLine_ID'])
         : null;
-    cBPartnerID = json['C_BPartner_ID'] != null
-        ? new ADClientID.fromJson(json['C_BPartner_ID'])
-        : null;
-    cBPartnerLocationID = json['C_BPartner_Location_ID'] != null
-        ? new ADClientID.fromJson(json['C_BPartner_Location_ID'])
-        : null;
-    pOReference = json['POReference'];
   }
 
   Map<String, dynamic> toJson() {
@@ -167,42 +138,32 @@ class Records {
     if (this.createdBy != null) {
       data['CreatedBy'] = this.createdBy!.toJson();
     }
+    data['Updated'] = this.updated;
     if (this.updatedBy != null) {
       data['UpdatedBy'] = this.updatedBy!.toJson();
     }
-    data['Updated'] = this.updated;
-    data['DocumentNo'] = this.documentNo;
+    if (this.movementType != null) {
+      data['MovementType'] = this.movementType!.toJson();
+    }
+    if (this.mLocatorID != null) {
+      data['M_Locator_ID'] = this.mLocatorID!.toJson();
+    }
+    if (this.mProductID != null) {
+      data['M_Product_ID'] = this.mProductID!.toJson();
+    }
     data['MovementDate'] = this.movementDate;
-    data['Processed'] = this.processed;
-    data['Processing'] = this.processing;
-    data['IsInTransit'] = this.isInTransit;
-    if (this.docStatus != null) {
-      data['DocStatus'] = this.docStatus!.toJson();
+    data['MovementQty'] = this.movementQty;
+    if (this.mInOutLineID != null) {
+      data['M_InOutLine_ID'] = this.mInOutLineID!.toJson();
     }
-    if (this.cDocTypeID != null) {
-      data['C_DocType_ID'] = this.cDocTypeID!.toJson();
-    }
-    data['ApprovalAmt'] = this.approvalAmt;
-    data['IsApproved'] = this.isApproved;
-    data['ChargeAmt'] = this.chargeAmt;
-    data['FreightAmt'] = this.freightAmt;
-    if (this.mWarehouseID != null) {
-      data['M_Warehouse_ID'] = this.mWarehouseID!.toJson();
-    }
-    if (this.mWarehouseToID != null) {
-      data['M_WarehouseTo_ID'] = this.mWarehouseToID!.toJson();
+    if (this.mAttributeSetInstanceID != null) {
+      data['M_AttributeSetInstance_ID'] =
+          this.mAttributeSetInstanceID!.toJson();
     }
     data['model-name'] = this.modelName;
-    if (this.salesRepID != null) {
-      data['SalesRep_ID'] = this.salesRepID!.toJson();
+    if (this.mMovementLineID != null) {
+      data['M_MovementLine_ID'] = this.mMovementLineID!.toJson();
     }
-    if (this.cBPartnerID != null) {
-      data['C_BPartner_ID'] = this.cBPartnerID!.toJson();
-    }
-    if (this.cBPartnerLocationID != null) {
-      data['C_BPartner_Location_ID'] = this.cBPartnerLocationID!.toJson();
-    }
-    data['POReference'] = this.pOReference;
     return data;
   }
 }
@@ -232,15 +193,15 @@ class ADClientID {
   }
 }
 
-class DocStatus {
+class MovementType {
   String? propertyLabel;
   String? id;
   String? identifier;
   String? modelName;
 
-  DocStatus({this.propertyLabel, this.id, this.identifier, this.modelName});
+  MovementType({this.propertyLabel, this.id, this.identifier, this.modelName});
 
-  DocStatus.fromJson(Map<String, dynamic> json) {
+  MovementType.fromJson(Map<String, dynamic> json) {
     propertyLabel = json['propertyLabel'];
     id = json['id'];
     identifier = json['identifier'];
@@ -256,3 +217,5 @@ class DocStatus {
     return data;
   }
 }
+
+

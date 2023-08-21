@@ -1,4 +1,5 @@
 import 'package:erp_app_prac/global.dart';
+import 'package:erp_app_prac/models/input_away_detail_model.dart';
 import 'package:erp_app_prac/models/inventory_pick_detail_model.dart';
 import 'package:erp_app_prac/screens/Notification.dart';
 import 'package:erp_app_prac/screens/Reports/reports.dart';
@@ -12,15 +13,15 @@ import 'package:erp_app_prac/widget/mydrawer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class DetailScreen extends StatefulWidget {
+class InPutAwayDetailScreen extends StatefulWidget {
   final int itemId;
-  const DetailScreen({super.key, required this.itemId});
+  const InPutAwayDetailScreen({super.key, required this.itemId});
 
   @override
-  State<DetailScreen> createState() => _DetailScreenState();
+  State<InPutAwayDetailScreen> createState() => _InPutAwayDetailScreenState();
 }
 
-class _DetailScreenState extends State<DetailScreen> {
+class _InPutAwayDetailScreenState extends State<InPutAwayDetailScreen> {
   int _selectedIndex = 0;
   void _onItemTapped(int index) {
     setState(() {
@@ -30,7 +31,7 @@ class _DetailScreenState extends State<DetailScreen> {
 
   @override
   void initState() {
-    getInventoryPickDetail(token, widget.itemId);
+    getinputawayDetail(token, widget.itemId);
     super.initState();
     print("---------------${widget.itemId}-------------");
   }
@@ -43,11 +44,11 @@ class _DetailScreenState extends State<DetailScreen> {
       body: Column(
         children: [
           const header2(
-            text: "INVENTORY PICK",
+            text: "INBOUND",
           ),
           Expanded(
-            child: FutureBuilder<InventoryPickDetailModel?>(
-              future: getInventoryPickDetail(token, widget.itemId),
+            child: FutureBuilder<InPutAwayDetailModel?>(
+              future: getinputawayDetail(token, widget.itemId),
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   return ListView.builder(

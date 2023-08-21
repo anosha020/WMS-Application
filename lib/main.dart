@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'dart:typed_data';
+import 'package:erp_app_prac/screens/barcode_scanner/scanning_screen.dart';
 import 'package:erp_app_prac/screens/splashScreen.dart';
 import 'package:erp_app_prac/screens/Inbound/inBound.dart';
 import 'package:erp_app_prac/screens/Inbound/InReceving/inReceiving.dart';
